@@ -6,4 +6,14 @@
 
 .mainTitle {
   background-color: var(--bg-2);
+  display: var(--display);
+  width: var(--width);
+}
+
+body {
+  background-color: #01060a;
+}
+
+* {
+  color: var(--text-color);
 }

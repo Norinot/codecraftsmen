@@ -1,0 +1,21 @@
+.animationWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 56px;
+}
+
+.formContainer {
+  max-width: 652px;
+  width: 100%;
+}
+
+.default {
+}
+
+.bottom {
+  background-color: red !important;
+}
+
+.top {
+  background-color: blue !important;
+}
