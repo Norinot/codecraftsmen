@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./App.scss";
-import { useTheme } from "./ThemeProvider/ThemeProvider.context";
-import SpaceMainPage from "./ThemePages/SpaceTheme/SpaceMain.component";
+import { useTheme } from "./theme-provider/theme-provider.context";
+import SpaceMainPage from "./theme-pages/space-theme/space-main.component";
 
 const App = () => {
   const { theme, switchTheme } = useTheme();

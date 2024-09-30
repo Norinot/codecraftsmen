@@ -1,4 +1,4 @@
-import ContactComponent from "./components/ContactComponent/Contact.component";
+import ContactComponent from "./components/contact-component/contact.component";
 
 const SpaceMainPage = () => {
   return <ContactComponent anchor="top"/>;
