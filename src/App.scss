@@ -17,3 +17,13 @@ body {
 * {
   color: var(--text-color);
 }
+
+footer {
+  bottom: 0;
+  position: absolute;
+}
+
+header {
+  top: 0;
+  position: sticky;
+}

@@ -16,8 +16,7 @@ const App = () => {
 
   return (
     <>
-      <h1 className="mainTitle">Current theme: {theme}</h1>
-
+      <header>sex1</header>
       {theme == "space" ? (
         <SpaceMainPage />
       ) : (
@@ -29,17 +28,7 @@ const App = () => {
           <span>asd2</span>
         </div>
       )}
-
-
-      {/* <div>
-        <select onChange={handleThemeChange} value={theme}>
-          <option value="space">space</option>
-          <option value="brutalism">brutalism</option>
-          <option value="minimalist">minimalist</option>
-          <option value="skeumorphism">skeumorphism</option>
-          <option value="vintage">vintage</option>
-        </select>
-      </div> */}
+      <footer>sex2</footer>
     </>
   );
 };
