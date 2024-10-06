@@ -42,3 +42,41 @@ body {
   font-family: "Roboto Flex", sans-serif;
   margin: 0;
 }
+
+.Minimalist {
+  body {
+    transition: 0.5s ease-in-out;
+    background-color: #a4abad;
+  }
+}
+
+.Vintage {
+  body {
+    transition: 0.5s ease-in-out;
+
+    background-color: #d8a7b1;
+  }
+}
+
+.Brutalism {
+  body {
+    transition: 0.5s ease-in-out;
+
+    background-color: #4af626;
+  }
+}
+.Space {
+  body {
+    transition: 0.5s ease-in-out;
+
+    background-color: #3f3d56;
+  }
+}
+
+.Skeumorph {
+  body {
+    transition: 0.5s ease-in-out;
+
+    background-color: #8a5a44;
+  }
+}

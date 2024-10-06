@@ -12,7 +12,7 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>("minimalist");
+  const [theme, setTheme] = useState<Theme>("Minimalist");
 
   const switchTheme = (newTheme: Theme) => {
     setTheme(newTheme);

@@ -10,7 +10,6 @@
   width: var(--width);
 }
 
-
 * {
   color: var(--text-color);
 }
@@ -24,3 +23,18 @@ header {
   top: 0;
   position: sticky;
 }
+
+.theme-page-wrapper {
+  max-width: 938px;
+  box-shadow: 22px -13px 66.3px 0 rgba(36, 40, 62, 0.54);
+  border-radius: 25px;
+  margin: 135px auto;
+}
+
+.theme-selector-container {
+  position: absolute;
+  top: 400px;
+  left: 150px;
+}
+
+
