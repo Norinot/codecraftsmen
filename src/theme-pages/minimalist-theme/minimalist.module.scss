@@ -13,13 +13,13 @@ img {
 }
 .wrapper {
   transition: 0.5s ease-in-out;
-
   padding-top: 97px;
   background-color: #f2edeb;
   border-radius: 24px;
 }
 
 .learnMoreButton {
+  transition: 0.3s ease-in-out;
   max-width: 186px;
   height: 42px;
   color: #ffffff;
@@ -28,6 +28,11 @@ img {
   border-radius: 6px;
   width: 100%;
   box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.54);
+}
+
+.learnMoreButton:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #313131;
 }
 
 .learnMoreGroup {
