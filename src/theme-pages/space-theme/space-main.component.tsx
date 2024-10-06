@@ -1,6 +1,10 @@
-import ContactComponent from "./components/contact-component/contact.component";
-
 const SpaceMainPage = () => {
-  return <ContactComponent anchor="top" />;
+  return (
+    <div>
+      <h1>SpaceMain</h1>
+      <h1></h1>
+      <h1></h1>
+    </div>
+  );
 };
 export default SpaceMainPage;

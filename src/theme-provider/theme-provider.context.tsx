@@ -1,8 +1,9 @@
 import { createContext, useState, useContext, ReactNode } from "react";
+import { Theme } from "../App";
 
 interface ThemeContextType {
-  theme: string;
-  switchTheme: (newTheme: string) => void;
+  theme: Theme;
+  switchTheme: (newTheme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -11,9 +12,9 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState("space");
+  const [theme, setTheme] = useState<Theme>("minimalist");
 
-  const switchTheme = (newTheme: string) => {
+  const switchTheme = (newTheme: Theme) => {
     setTheme(newTheme);
   };
 

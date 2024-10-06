@@ -26,6 +26,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Roboto Flex";
+  src: url("/RobotoFlex-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Rubik Maze";
+  src: url("/RubikMaze-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: "Space Mono", sans-serif;
+  font-family: "Roboto Flex", sans-serif;
+  margin: 0;
 }

@@ -2,6 +2,17 @@ import { useEffect } from "react";
 import "./App.scss";
 import { useTheme } from "./theme-provider/theme-provider.context";
 import SpaceMainPage from "./theme-pages/space-theme/space-main.component";
+import MinimalistMainPage from "./theme-pages/minimalist-theme/minimalist-main.component";
+import BrutalismMainPage from "./theme-pages/brutalism-theme/brutalism-main.component";
+import VintageMainPage from "./theme-pages/vintage-theme/vintage-main.component";
+import SkeumorphMainPage from "./theme-pages/skeumorph-theme/skeumorph-main.component";
+
+export type Theme =
+  | "minimalist"
+  | "space"
+  | "brutalism"
+  | "vintage"
+  | "skeumorph";
 
 const App = () => {
   const { theme, switchTheme } = useTheme();
@@ -11,25 +22,30 @@ const App = () => {
   }, [theme]);
 
   const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    switchTheme(event.target.value);
+    switchTheme(event.target.value as Theme);
+  };
+
+  const themeComponents: Record<Theme, JSX.Element> = {
+    minimalist: <MinimalistMainPage />,
+    space: <SpaceMainPage />,
+    brutalism: <BrutalismMainPage />,
+    vintage: <VintageMainPage />,
+    skeumorph: <SkeumorphMainPage />,
   };
 
   return (
-    <>
-      <header>sex1</header>
-      {theme == "space" ? (
-        <SpaceMainPage />
-      ) : (
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span>asd</span>
-            <div style={{ color: "red" }}>asd</div>
-          </div>
-          <span>asd2</span>
-        </div>
-      )}
-      <footer>sex2</footer>
-    </>
+    <div>
+      <div style={{ position: "absolute" }}>
+        <select onChange={handleThemeChange} value={theme}>
+          <option value="space">space</option>
+          <option value="brutalism">brutalism</option>
+          <option value="minimalist">minimalist</option>
+          <option value="skeumorphism">skeumorphism</option>
+          <option value="vintage">vintage</option>
+        </select>
+      </div>
+      {themeComponents[theme] || <MinimalistMainPage />}
+    </div>
   );
 };
 
