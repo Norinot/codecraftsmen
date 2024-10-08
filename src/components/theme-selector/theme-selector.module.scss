@@ -1,0 +1,36 @@
+.themeSelectorWrapper {
+  width: 175px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.themeSelector {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.themeItem {
+  height: 28px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  cursor: pointer;
+
+  &:hover:not(.selected) {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.selected {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.chooseStyle {
+  color: rgba(0, 0, 0, 0.5);
+}
