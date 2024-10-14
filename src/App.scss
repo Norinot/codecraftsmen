@@ -1,0 +1,38 @@
+@import "@themes/theme-space";
+@import "@themes/theme-brutalism";
+@import "@themes/theme-minimalist";
+@import "@themes/theme-skeumorphism";
+@import "@themes/theme-vintage";
+
+.mainTitle {
+  background-color: var(--bg-2);
+  display: var(--display);
+  width: var(--width);
+}
+
+* {
+  color: var(--text-color);
+}
+
+footer {
+  bottom: 0;
+  position: absolute;
+}
+
+.theme-page-wrapper {
+  max-width: 938px;
+  box-shadow: 22px -13px 66.3px 0 rgba(36, 40, 62, 0.54);
+  border-radius: 25px;
+  margin: 135px auto;
+
+  transition: 0.5s ease-in-out;
+  padding-top: 97px;
+  background-color: #f2edeb;
+  border-radius: 24px;
+}
+
+.theme-selector-container {
+  position: absolute;
+  top: 400px;
+  left: 150px;
+}
