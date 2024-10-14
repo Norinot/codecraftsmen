@@ -31,18 +31,28 @@ const App = () => {
     Skeumorph: <SkeumorphMainPage />,
   };
 
+  const themeColors: Record<Theme, string> = {
+    Minimalist: "#f2edeb",
+    Brutalism: "#f2edeb",
+    Space: "#2B2B2B",
+    Skeumorph: "#B0B0B0",
+    Vintage: "#F4E1D2",
+  };
+
   return (
     <div>
-      <div className="theme-selector-container">
-        <ThemeSelector />
-      </div>
-      <div className="theme-page-wrapper">
-        <Header />
-
-        {themeComponents[theme] || <MinimalistMainPage />}
-      </div>
+    <div className="theme-selector-container">
+      <ThemeSelector />
     </div>
-  );
+    <div
+      className="theme-page-wrapper"
+      style={{ backgroundColor: themeColors[theme] }}
+    >
+      <Header />
+      {themeComponents[theme] || <MinimalistMainPage />}
+    </div>
+  </div>
+);
 };
 
 export default App;

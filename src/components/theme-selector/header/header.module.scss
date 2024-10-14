@@ -82,16 +82,56 @@
     .line {
       background-color: #ffffff;
       height: 8px;
-      width: 100%;
+      width: 70%;
     }
   }
 }
 
 .Skeumorph {
+  margin: 0 50px
 }
 
 .Vintage {
+  margin: 0 50px;
 }
 
 .Space {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2B2B2B;
+  height: 98px;
+  padding: 0 20px;
+
+  .headerTitle {
+    font-family: "Rubik Maze", sans-serif;
+    font-weight: normal;
+    font-size: 64px;
+    color: #02D2BA;
+    letter-spacing: -1px;
+    margin: 0;
+    padding: 0;
+    line-height: 98px;
+  }
+
+  .hamburgerMenu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: 38px;
+    padding: 0;
+
+    .line {
+      background-color: #02D2BA;
+      border-radius: 12px 12px 12px 12px;
+      height: 5px;
+      width: 70%;
+    }
+  }
 }
