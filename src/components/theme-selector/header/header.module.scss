@@ -1,0 +1,97 @@
+.Minimalist {
+  min-height: 65px;
+  margin: 0 50px 0 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 11px;
+  align-items: flex-end;
+  padding-bottom: 12px;
+  border-bottom: 6px solid #1e1e1e;
+  border-right: 4px solid #1e1e1e;
+
+  justify-content: space-between;
+  padding-right: 16px;
+
+  .headerTitle {
+    font-family: "Rubik Maze", sans-serif;
+    font-weight: normal;
+    line-height: 35px;
+    letter-spacing: -1px;
+    margin: 0;
+    font-size: 40px;
+    width: fit-content;
+  }
+
+  .hamburgerMenu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: auto;
+    padding: 0;
+    gap: 8px;
+    .line {
+      background-color: #1e1e1e;
+      height: 4px;
+      width: 30px;
+    }
+  }
+
+  .hamburgerMenu:hover {
+    .line {
+      background-color: #a4abad;
+    }
+  }
+}
+
+.Brutalism {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #292929;
+  height: 98px;
+  padding: 0 20px;
+
+  .headerTitle {
+    font-family: "Rubik Maze", sans-serif;
+    font-weight: normal;
+    font-size: 64px;
+    color: #ffffff;
+    letter-spacing: -1px;
+    margin: 0;
+    padding: 0;
+    line-height: 98px;
+  }
+
+  .hamburgerMenu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: 38px;
+    padding: 0;
+
+    .line {
+      background-color: #ffffff;
+      height: 8px;
+      width: 100%;
+    }
+  }
+}
+
+.Skeumorph {
+}
+
+.Vintage {
+}
+
+.Space {
+}

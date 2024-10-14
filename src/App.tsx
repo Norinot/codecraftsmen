@@ -7,6 +7,7 @@ import BrutalismMainPage from "./theme-pages/brutalism-theme/brutalism-main.comp
 import VintageMainPage from "./theme-pages/vintage-theme/vintage-main.component";
 import SkeumorphMainPage from "./theme-pages/skeumorph-theme/skeumorph-main.component";
 import ThemeSelector from "./components/theme-selector/theme-selector.component";
+import Header from "./components/theme-selector/header/header.component";
 
 export type Theme =
   | "Minimalist"
@@ -36,6 +37,8 @@ const App = () => {
         <ThemeSelector />
       </div>
       <div className="theme-page-wrapper">
+        <Header />
+
         {themeComponents[theme] || <MinimalistMainPage />}
       </div>
     </div>
