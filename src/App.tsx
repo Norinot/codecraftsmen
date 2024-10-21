@@ -16,6 +16,14 @@ export type Theme =
   | "Skeumorph"
   | "Vintage";
 
+const themeColors: Record<Theme, string> = {
+  Minimalist: "#f2edeb",
+  Brutalism: "#ffb6c1",
+  Space: "#add8e6",
+  Skeumorph: "#90ee90",
+  Vintage: "#f4a460",
+};
+
 const App = () => {
   const { theme } = useTheme();
 
@@ -41,18 +49,18 @@ const App = () => {
 
   return (
     <div>
-    <div className="theme-selector-container">
-      <ThemeSelector />
+      <div className="theme-selector-container">
+        <ThemeSelector />
+      </div>
+      <div
+        className="theme-page-wrapper"
+        style={{ backgroundColor: themeColors[theme] }}
+      >
+        <Header />
+        {themeComponents[theme] || <MinimalistMainPage />}
+      </div>
     </div>
-    <div
-      className="theme-page-wrapper"
-      style={{ backgroundColor: themeColors[theme] }}
-    >
-      <Header />
-      {themeComponents[theme] || <MinimalistMainPage />}
-    </div>
-  </div>
-);
+  );
 };
 
 export default App;

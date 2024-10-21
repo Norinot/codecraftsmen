@@ -13,9 +13,26 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    li {
+    gap: 30px;
+
+    .active {
+      position: relative;
+    }
+
+    .active::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 60%;
+      height: 2px;
+      background-color: black;
+    }
+
+    .liStyles {
       font-size: 24px;
       line-height: 32px;
+      max-width: min-content;
       max-width: 261px;
     }
 
@@ -23,18 +40,66 @@
       flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-
+      gap: 67px;
       margin: 0;
     }
   }
+
   .servicesWrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
+    .serviceButtonWrapper {
+      width: 100%;
+      max-height: 225px;
+      display: flex;
+
+      .breakLineMe {
+        max-width: 104px;
+      }
+
+      .secondGroup {
+        border-right: 2px solid #a4abad;
+      }
+    }
   }
 
   .servicesBaseImage {
     width: 226px;
-    height: 255px;
+    height: 224px;
   }
+
+  .contactUsButton {
+    margin-top: 48px;
+    border: 1px solid #1e1e1e;
+    color: #1e1e1e;
+    padding: 10px 24px;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+
+    box-shadow: 0 4 4px 0 rgba(36, 40, 62, 0.25%);
+  }
+}
+
+.separator {
+  margin-top: 25px;
+  max-width: 95%;
+  height: 2px;
+  border-bottom: 2px solid #a4abad;
+}
+
+.serviceWebMaintenanceWrapper {
+  margin-top: 25px;
+  padding-top: 25px;
+  padding-left: 25px;
+  border-right: 2px solid #a4abad;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.expandedImage {
+  height: 540px;
 }
