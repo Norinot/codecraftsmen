@@ -1,4 +1,6 @@
 import OurServices from "./components/our-services/our-services.component";
+import OurTeam from "./components/our-team/our-team.component";
+import Typography from "./components/typography/typography.component";
 import styles from "./minimalist.module.scss";
 
 const MinimalistMainPage = () => {
@@ -6,12 +8,19 @@ const MinimalistMainPage = () => {
     <>
       <div className={styles.heroSection}>
         <div className={styles.learnMoreGroup}>
-          <h1 className={styles.title}>We create websites.</h1>
+          <Typography
+            theme="Minimalist"
+            variant="display-medium"
+            className={styles.title}
+          >
+            We create websites.
+          </Typography>
           <button className={styles.learnMoreButton}>Learn more</button>
         </div>
         <img className={styles.animatedLogo} src="/animated_logo.svg" alt="" />
       </div>
       <OurServices />
+      <OurTeam />
     </>
   );
 };
