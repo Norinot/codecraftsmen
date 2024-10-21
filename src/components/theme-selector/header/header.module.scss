@@ -1,27 +1,22 @@
 .Minimalist {
   padding-top: 97px;
+
   .wrapper {
     min-height: 65px;
-    margin: 0 50px 0 50px;
+    margin: 0 50px;
     display: flex;
     flex-direction: row;
-    gap: 11px;
+    justify-content: space-between;
     align-items: flex-end;
     padding-bottom: 12px;
     border-bottom: 6px solid #1e1e1e;
     border-right: 4px solid #1e1e1e;
 
-    justify-content: space-between;
-    padding-right: 16px;
-
     .headerTitle {
       font-family: "Rubik Maze", sans-serif;
-      font-weight: normal;
-      line-height: 35px;
-      letter-spacing: -1px;
-      margin: 0;
       font-size: 40px;
-      width: fit-content;
+      line-height: 35px;
+      margin: 0;
     }
 
     .hamburgerMenu {
@@ -32,21 +27,71 @@
       flex-direction: column;
       justify-content: space-between;
       width: 30px;
-      height: auto;
+      height: 24px;
       padding: 0;
-      gap: 8px;
+      gap: 6px;
+
       .line {
         background-color: #1e1e1e;
         height: 4px;
         width: 30px;
       }
-    }
 
-    .hamburgerMenu:hover {
-      .line {
-        background-color: #a4abad;
+      &.open .line:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: 10px;
+      }
+
+      &.open .line:nth-child(2) {
+        opacity: 0;
+      }
+
+      &.open .line:nth-child(3) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: -10px;
       }
     }
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    top: 230px;
+    right: 344px;
+    background-color: #fff;
+    border: 1px solid #1e1e1e;
+    padding: 16px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 220px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 8px 0;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #1e1e1e;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    cursor: pointer;
   }
 }
 
@@ -90,12 +135,31 @@
         height: 8px;
         width: 70%;
       }
+
+      &.open .line {
+        .line:nth-child(1) {
+          transform: rotate(45deg);
+          position: relative;
+          top: 8px;
+        }
+
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .line:nth-child(3) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: -8px;
+        }
+      }
     }
   }
 }
 
 .Skeumorph {
   padding-top: 97px;
+
   .wrapper {
     margin: 0 50px;
     display: flex;
@@ -130,9 +194,27 @@
 
       .line {
         background-color: #ee4e14;
-        border-radius: 12px 12px 12px 12px;
+        border-radius: 12px;
         height: 5px;
         width: 70%;
+      }
+
+      &.open .line {
+        .line:nth-child(1) {
+          transform: rotate(45deg);
+          position: relative;
+          top: 8px;
+        }
+
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .line:nth-child(3) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: -8px;
+        }
       }
     }
   }
@@ -149,7 +231,7 @@
     height: 98px;
     padding: 0 20px;
     padding-top: 0px;
-    border-radius: 12px 12px 0px 0px;
+    border-radius: 12px 12px 0 0;
 
     .headerTitle {
       font-family: "Rubik Maze", sans-serif;
@@ -175,9 +257,27 @@
 
       .line {
         background-color: #d8a7b1;
-        border-radius: 12px 12px 12px 12px;
+        border-radius: 12px;
         height: 5px;
         width: 70%;
+      }
+
+      &.open .line {
+        .line:nth-child(1) {
+          transform: rotate(45deg);
+          position: relative;
+          top: 8px;
+        }
+
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .line:nth-child(3) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: -8px;
+        }
       }
     }
   }
@@ -185,6 +285,7 @@
 
 .Space {
   padding-top: 97px;
+
   .wrapper {
     margin: 0 50px;
     display: flex;
@@ -219,9 +320,27 @@
 
       .line {
         background-color: #02d2ba;
-        border-radius: 12px 12px 12px 12px;
+        border-radius: 12px;
         height: 5px;
         width: 70%;
+      }
+
+      &.open .line {
+        .line:nth-child(1) {
+          transform: rotate(45deg);
+          position: relative;
+          top: 8px;
+        }
+
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .line:nth-child(3) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: -8px;
+        }
       }
     }
   }

@@ -16,14 +16,6 @@ export type Theme =
   | "Skeumorph"
   | "Vintage";
 
-const themeColors: Record<Theme, string> = {
-  Minimalist: "#f2edeb",
-  Brutalism: "#ffb6c1",
-  Space: "#add8e6",
-  Skeumorph: "#90ee90",
-  Vintage: "#f4a460",
-};
-
 const App = () => {
   const { theme } = useTheme();
 
