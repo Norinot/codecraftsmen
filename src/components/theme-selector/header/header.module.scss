@@ -25,6 +25,7 @@
     }
 
     .hamburgerMenu {
+      position: relative;
       background: transparent;
       border: none;
       cursor: pointer;
@@ -47,6 +48,25 @@
         background-color: #a4abad;
       }
     }
+  }
+
+  .menu {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    width: 150px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: hidden;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
