@@ -3,6 +3,7 @@ import { useTheme } from "../../../theme-provider/theme-provider.context";
 import styles from "./header.module.scss";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,6 +22,14 @@ const Header = () => {
           <div className={styles.line}></div>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
+
+          <div className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`}>
+            <ul>
+              <li>Menu Item 1</li>
+              <li>Menu Item 2</li>
+              <li>Menu Item 3</li>
+            </ul>
+          </div>
         </button>
 
         {isOpen && (
