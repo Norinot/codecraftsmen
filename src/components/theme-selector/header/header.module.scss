@@ -1,22 +1,27 @@
 .Minimalist {
   padding-top: 97px;
-
   .wrapper {
     min-height: 65px;
-    margin: 0 50px;
+    margin: 0 50px 0 50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 11px;
     align-items: flex-end;
     padding-bottom: 12px;
     border-bottom: 6px solid #1e1e1e;
     border-right: 4px solid #1e1e1e;
 
+    justify-content: space-between;
+    padding-right: 16px;
+
     .headerTitle {
       font-family: "Rubik Maze", sans-serif;
-      font-size: 40px;
+      font-weight: normal;
       line-height: 35px;
+      letter-spacing: -1px;
       margin: 0;
+      font-size: 40px;
+      width: fit-content;
     }
 
     .hamburgerMenu {
@@ -28,71 +33,78 @@
       flex-direction: column;
       justify-content: space-between;
       width: 30px;
-      height: 24px;
+      height: auto;
       padding: 0;
-      gap: 6px;
-
+      gap: 8px;
       .line {
         background-color: #1e1e1e;
         height: 4px;
         width: 30px;
       }
+    }
 
-      &.open .line:nth-child(1) {
-        transform: rotate(45deg);
-        position: relative;
-        top: 10px;
-      }
-
-      &.open .line:nth-child(2) {
-        opacity: 0;
-      }
-
-      &.open .line:nth-child(3) {
-        transform: rotate(-45deg);
-        position: relative;
-        top: -10px;
+    .hamburgerMenu:hover {
+      .line {
+        background-color: #a4abad;
       }
     }
-  }
 
-  .dropdownMenu {
-    position: absolute;
-    top: 230px;
-    right: 344px;
-    background-color: #fff;
-    border: 1px solid #1e1e1e;
-    padding: 16px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    width: 220px;
+    .menuWrapper {
+      position: relative;
+      ul {
+        margin: 0;
+        padding: 6px;
+        list-style: inside disc;
+        li {
+          padding: 8px 0;
+          font-size: 24px;
+          height: 32px;
+          letter-spacing: 1px;
+          cursor: pointer;
 
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        padding: 8px 0;
-        font-size: 16px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #f0f0f0;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
+    .closeButton {
+      background: none;
+      border: none;
+      font-size: 48px;
+      color: #1e1e1e;
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      cursor: pointer;
+      transition: 0.5s ease-out;
+      &:hover {
+        opacity: 30%;
+      }
+    }
   }
 
-  .closeButton {
-    background: none;
-    border: none;
-    font-size: 20px;
-    color: #1e1e1e;
+  .menu {
     position: absolute;
-    top: 10px;
-    right: 16px;
-    cursor: pointer;
+    right: 0;
+    width: 150px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: hidden;
+    width: 357px;
+    height: 300px;
+    right: -16px;
+    border-top: 20px solid #a4abad;
+    top: -37px;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -136,45 +148,168 @@
         background-color: #ffffff;
         height: 8px;
         width: 70%;
+        transition: all 0.7s ease-in-out;
+      }
+    }
+
+    .hamburgerMenu:hover {
+      .line {
+        background-color: #6a8d99;
+      }
+    }
+
+    .menuWrapper {
+      position: relative;
+
+      ul {
+        text-align: left;
+        display: flex;
+        padding: 12px;
+        gap: 51px;
+        margin: 0;
+        padding: 12px;
       }
 
-      &.open .line {
-        .line:nth-child(1) {
-          transform: rotate(45deg);
-          position: relative;
-          top: 8px;
-        }
-
-        .line:nth-child(2) {
-          opacity: 0;
-        }
-
-        .line:nth-child(3) {
-          transform: rotate(-45deg);
-          position: relative;
-          top: -8px;
+      li {
+        padding: 8px 0;
+        font-size: 24px;
+        height: 32;
+        letter-spacing: 0px;
+        cursor: pointer;
+        list-style-type: none;
+        transition: all 0.7s ease;
+        &:hover {
+          color: #f4f4f4;
         }
       }
     }
   }
 
-  .menu {
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 41px;
+    color: #f4f4f4;
     position: absolute;
-    top: -10px;
-    right: 0;
-    width: 150px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    visibility: hidden;
+    top: 25px;
+    right: 31px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  height: 66px;
+  top: -30px;
+  right: -20px;
+  width: 806px;
+  background-color: #6a8d99;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+.menuOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Space {
+  padding-top: 46px;
+
+  .wrapper {
+    margin: 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #01060a;
+    height: 98px;
+    padding: 34px 52px;
+    border-bottom: 2px solid #02d2ba;
+    box-shadow: 0px 8px 15px -11px #ffffff;
+
+    .headerTitle {
+      font-family: "Rubik Maze", sans-serif;
+      font-weight: normal;
+      font-size: 64px;
+      color: #02d2ba;
+      letter-spacing: -1px;
+      margin: 0;
+      padding: 0;
+      line-height: 98px;
+    }
+
+    .hamburgerMenu {
+      position: relative;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50px;
+      height: 38px;
+      padding: 0;
+
+      .line {
+        background-color: #02d2ba;
+        border-radius: 12px;
+        height: 5px;
+        width: 70%;
+        transition: all 0.7s ease-in-out;
+      }
+    }
+
+    .hamburgerMenu:hover {
+      .line {
+        background-color: #fff;
+      }
+    }
+    .menuWrapper {
+      position: relative;
+
+      ul {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        margin: 0;
+        gap: 0;
+      }
+
+      li {
+        padding: 8px 0;
+        font-size: 24px;
+        height: 32;
+        letter-spacing: 0px;
+        color: #f0fefe;
+        cursor: pointer;
+        list-style-type: none;
+        transition: all 0.7s ease;
+        &:hover {
+          color: #f4f4f4;
+        }
+      }
+    }
   }
 
-  .menuOpen {
-    opacity: 1;
-    visibility: visible;
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 41px;
+    color: #f4f4f4;
+    transition: all 0.7s ease;
+    &:hover {
+      color: #02d2ba;
+    }
   }
 }
 
@@ -278,69 +413,6 @@
 
       .line {
         background-color: #d8a7b1;
-        border-radius: 12px;
-        height: 5px;
-        width: 70%;
-      }
-
-      &.open .line {
-        .line:nth-child(1) {
-          transform: rotate(45deg);
-          position: relative;
-          top: 8px;
-        }
-
-        .line:nth-child(2) {
-          opacity: 0;
-        }
-
-        .line:nth-child(3) {
-          transform: rotate(-45deg);
-          position: relative;
-          top: -8px;
-        }
-      }
-    }
-  }
-}
-
-.Space {
-  padding-top: 97px;
-
-  .wrapper {
-    margin: 0 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2b2b2b;
-    height: 98px;
-    padding: 0 20px;
-
-    .headerTitle {
-      font-family: "Rubik Maze", sans-serif;
-      font-weight: normal;
-      font-size: 64px;
-      color: #02d2ba;
-      letter-spacing: -1px;
-      margin: 0;
-      padding: 0;
-      line-height: 98px;
-    }
-
-    .hamburgerMenu {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 50px;
-      height: 38px;
-      padding: 0;
-
-      .line {
-        background-color: #02d2ba;
         border-radius: 12px;
         height: 5px;
         width: 70%;

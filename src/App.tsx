@@ -34,7 +34,7 @@ const App = () => {
   const themeColors: Record<Theme, string> = {
     Minimalist: "#f2edeb",
     Brutalism: "#f2edeb",
-    Space: "#2B2B2B",
+    Space: "#01060A",
     Skeumorph: "#B0B0B0",
     Vintage: "#F4E1D2",
   };
