@@ -38,6 +38,10 @@
   font-style: normal;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Roboto Flex", sans-serif;
   margin: 0;

@@ -10,22 +10,31 @@ const Header = () => {
     <div className={styles[theme]}>
       <header className={styles.wrapper}>
         <h1 className={styles.headerTitle}>C_C_M_</h1>
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={styles.hamburgerMenu}
-        >
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-
+        <div className={styles.menuWrapper}>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={styles.hamburgerMenu}
+          >
+            <div className={styles.line}></div>
+            <div className={styles.line}></div>
+            <div className={styles.line}></div>
+          </button>
           <div className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`}>
             <ul>
               <li>Menu Item 1</li>
               <li>Menu Item 2</li>
               <li>Menu Item 3</li>
             </ul>
+            <button
+              className={styles.closeButton}
+              onClick={() => {
+                setMenuOpen(!menuOpen);
+              }}
+            >
+              X
+            </button>
           </div>
-        </button>
+        </div>
       </header>
     </div>
   );
