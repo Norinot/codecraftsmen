@@ -320,8 +320,8 @@
     right: -52px;
     width: 357px;
     background-color: #01060a;
-    box-shadow: -12px 8px 76.5px 22px #02d2ba;
-    clip-path: border-box;
+    overflow: hidden;
+    box-shadow: -5em 0 1em #02d2ba;
     padding: 1rem;
     z-index: 1000;
     opacity: 0;

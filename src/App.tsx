@@ -40,7 +40,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="page-wrapper">
       <div className="theme-selector-container">
         <ThemeSelector />
       </div>
