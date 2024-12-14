@@ -11,6 +11,7 @@
     justify-content: space-between;
 
     .defaultImg {
+      cursor: pointer;
       transition: filter 0.3s ease-in-out;
       filter: grayscale(100%);
     }
