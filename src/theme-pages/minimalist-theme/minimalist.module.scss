@@ -12,6 +12,9 @@
     brightness(92%) contrast(91%);
 }
 
+.root{
+  margin: 56px;
+}
 
 .learnMoreButton {
   transition: 0.3s ease-in-out;
@@ -20,7 +23,6 @@
   color: #ffffff;
   background-color: #1e1e1e;
   border: none;
-  border-radius: 6px;
   width: 100%;
   box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.54);
 }

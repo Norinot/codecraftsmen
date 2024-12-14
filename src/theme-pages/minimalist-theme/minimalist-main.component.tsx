@@ -19,8 +19,10 @@ const MinimalistMainPage = () => {
         </div>
         <img className={styles.animatedLogo} src="/animated_logo.svg" alt="" />
       </div>
-      <OurServices />
-      <OurTeam />
+      <div className={styles.root}>
+        <OurServices />
+        <OurTeam />
+      </div>
     </>
   );
 };

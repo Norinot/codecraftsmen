@@ -8,6 +8,7 @@ import VintageMainPage from "./theme-pages/vintage-theme/vintage-main.component"
 import SkeumorphMainPage from "./theme-pages/skeumorph-theme/skeumorph-main.component";
 import ThemeSelector from "./components/theme-selector/theme-selector.component";
 import Header from "./components/theme-selector/header/header.component";
+import Footer from "./components/theme-selector/footer/footer.component";
 
 export type Theme =
   | "Minimalist"
@@ -50,6 +51,7 @@ const App = () => {
       >
         <Header />
         {themeComponents[theme] || <MinimalistMainPage />}
+        <Footer />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className={styles[theme]}>
       <header className={styles.wrapper}>
-        <h1 className={styles.headerTitle}>C_C_M</h1>
+        <h1 className={styles.headerTitle}>C_C_M_</h1>
         <div className={styles.menuWrapper}>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
