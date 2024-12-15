@@ -20,23 +20,21 @@ h1 {
     position: relative;
   }
 
-  .active::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 60%;
-    height: 2px;
-    background-color: black;
+  .active {
+    text-decoration: underline;
   }
 
-  .liStyles {
+  .listStyles {
     cursor: pointer;
 
     font-size: 24px;
     line-height: 32px;
     max-width: min-content;
     max-width: 261px;
+  }
+
+  .listStyles:hover {
+    text-decoration: underline;
   }
 }
 
@@ -79,6 +77,10 @@ h1 {
   cursor: pointer;
 }
 
+.contactUsButton:hover {
+  box-shadow: 0px 0px 26px 4px rgba(0, 0, 0, 0.18);
+}
+
 img {
   display: block;
   transition: height 0.5s ease, opacity 0.5s ease;
@@ -107,11 +109,11 @@ img {
 .servicesBaseImage {
   width: 193px;
   height: 217px;
-  transition: height 0.5s ease, opacity 0.5s ease;
+  transition: height 0.5s ease, opacity 2s ease;
 }
 
 .expandedImage {
   width: 193px;
   height: 540px;
-  transition: height 0.5s ease, opacity 0.5s ease;
+  transition: height 0.5s ease, opacity 2s ease;
 }

@@ -131,7 +131,7 @@ const OurServices = () => {
                 <li
                   key={service.key}
                   onClick={() => handleClick(service.key)}
-                  className={`${styles.liStyles}
+                  className={`${styles.listStyles}
                 ${serviceOption === service.key ? styles.active : ""}
                 `}
                 >
