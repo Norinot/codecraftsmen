@@ -51,20 +51,16 @@
 
     .menuWrapper {
       position: relative;
-
       ul {
-        list-style: inside;
-        text-align: left;
         margin: 0;
         padding: 6px;
-
+        list-style: inside disc;
         li {
           padding: 8px 0;
           font-size: 24px;
-          height: 32;
-          letter-spacing: 0px;
+          height: 32px;
+          letter-spacing: 1px;
           cursor: pointer;
-          list-style-type: disc;
 
           &:hover {
             text-decoration: underline;
@@ -81,6 +77,10 @@
       top: 10px;
       right: 16px;
       cursor: pointer;
+      transition: 0.5s ease-out;
+      &:hover {
+        opacity: 30%;
+      }
     }
   }
 
@@ -97,9 +97,9 @@
     visibility: hidden;
     width: 357px;
     height: 300px;
-    right: -20px;
+    right: -16px;
     border-top: 20px solid #a4abad;
-    top: -37px;
+    top: -19px;
   }
 
   .menuOpen {
@@ -109,20 +109,139 @@
 }
 
 .Brutalism {
-  margin: 0 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #292929;
-  height: 98px;
-  padding: 0 20px;
+  padding-top: 97px;
+
+  .wrapper {
+    margin: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #292929;
+    height: 98px;
+    padding: 0 20px;
+
+    .headerTitle {
+      font-family: "Rubik Maze", sans-serif;
+      font-weight: normal;
+      font-size: 64px;
+      color: #ffffff;
+      letter-spacing: -1px;
+      margin: 0;
+      padding: 0;
+      line-height: 98px;
+    }
+
+    .hamburgerMenu {
+      position: relative;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50px;
+      height: 38px;
+      padding: 0;
+
+      .line {
+        background-color: #ffffff;
+        height: 8px;
+        width: 70%;
+        transition: all 0.7s ease-in-out;
+      }
+    }
+
+    .hamburgerMenu:hover {
+      .line {
+        background-color: #6a8d99;
+      }
+    }
+
+    .menuWrapper {
+      position: relative;
+
+      ul {
+        text-align: left;
+        display: flex;
+        padding: 12px;
+        gap: 51px;
+        margin: 0;
+        padding: 12px;
+      }
+
+      li {
+        padding: 8px 0;
+        font-size: 24px;
+        height: 32;
+        letter-spacing: 0px;
+        cursor: pointer;
+        list-style-type: none;
+        transition: all 0.7s ease;
+        &:hover {
+          color: #f4f4f4;
+        }
+      }
+    }
+  }
+
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 41px;
+    color: #f4f4f4;
+    position: absolute;
+    top: 25px;
+    right: 31px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    &:hover {
+      color: black;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    height: 66px;
+    top: -30px;
+    right: -20px;
+    width: 806px;
+    background-color: #6a8d99;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: hidden;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.Space {
+  padding-top: 46px;
+
+  .wrapper {
+    margin: 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #01060a;
+    height: 100%;
+    padding: 34px 52px;
+    border-bottom: 2px solid #02d2ba;
+    box-shadow: 0px 8px 15px -11px #ffffff;
+  }
 
   .headerTitle {
     font-family: "Rubik Maze", sans-serif;
     font-weight: normal;
     font-size: 64px;
-    color: #ffffff;
+    color: #02d2ba;
     letter-spacing: -1px;
     margin: 0;
     padding: 0;
@@ -130,6 +249,7 @@
   }
 
   .hamburgerMenu {
+    position: relative;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -141,18 +261,211 @@
     padding: 0;
 
     .line {
-      background-color: #ffffff;
-      height: 8px;
-      width: 100%;
+      background-color: #02d2ba;
+      border-radius: 12px;
+      height: 5px;
+      width: 70%;
+      transition: all 0.7s ease-in-out;
+    }
+  }
+
+  .hamburgerMenu:hover {
+    .line {
+      background-color: #fff;
+    }
+  }
+  .menuWrapper {
+    position: relative;
+
+    ul {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0px;
+      margin: 0;
+      gap: 0;
+    }
+
+    li {
+      padding: 8px 0;
+      font-size: 24px;
+      height: 32;
+      letter-spacing: 0px;
+      color: #f0fefe;
+      cursor: pointer;
+      list-style-type: none;
+      transition: all 0.7s ease;
+      &:hover {
+        color: #02d2ba;
+      }
+    }
+  }
+
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 41px;
+    color: #02d2ba;
+    transition: all 0.7s ease;
+    &:hover {
+      color: #f4f4f4;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    display: flex;
+    min-height: calc(100vh + 1298px);
+    top: -110px;
+    right: -52px;
+    width: 357px;
+    background-color: #01060a;
+    overflow: hidden;
+    box-shadow: -5em 0 1em #02d2ba;
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: hidden;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    border-radius: 0px 12px 0px 0px;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.menuOpen {
+    .Space {
+      filter: blur(8px);
     }
   }
 }
 
 .Skeumorph {
+  padding-top: 97px;
+
+  .wrapper {
+    margin: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b0b0b0;
+    height: 98px;
+    padding: 0 20px;
+
+    .headerTitle {
+      font-family: "Rubik Maze", sans-serif;
+      font-weight: normal;
+      font-size: 64px;
+      color: #8a5a44;
+      letter-spacing: -1px;
+      margin: 0;
+      padding: 0;
+      line-height: 98px;
+    }
+
+    .hamburgerMenu {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50px;
+      height: 38px;
+      padding: 0;
+
+      .line {
+        background-color: #ee4e14;
+        border-radius: 12px;
+        height: 5px;
+        width: 70%;
+      }
+
+      &.open .line {
+        .line:nth-child(1) {
+          transform: rotate(45deg);
+          position: relative;
+          top: 8px;
+        }
+
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .line:nth-child(3) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: -8px;
+        }
+      }
+    }
+  }
 }
 
 .Vintage {
-}
+  .wrapper {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cd3c59;
+    height: 98px;
+    padding: 0 20px;
+    padding-top: 0px;
+    border-radius: 12px 12px 0 0;
 
-.Space {
+    .headerTitle {
+      font-family: "Rubik Maze", sans-serif;
+      font-weight: normal;
+      font-size: 64px;
+      color: #ffc89d;
+      letter-spacing: -1px;
+      margin: 0;
+      padding: 0;
+      line-height: 98px;
+    }
+
+    .hamburgerMenu {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50px;
+      height: 38px;
+      padding: 0;
+
+      .line {
+        background-color: #d8a7b1;
+        border-radius: 12px;
+        height: 5px;
+        width: 70%;
+      }
+
+      &.open .line {
+        .line:nth-child(1) {
+          transform: rotate(45deg);
+          position: relative;
+          top: 8px;
+        }
+
+        .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .line:nth-child(3) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: -8px;
+        }
+      }
+    }
+  }
 }

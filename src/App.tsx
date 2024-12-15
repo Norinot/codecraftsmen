@@ -8,6 +8,7 @@ import VintageMainPage from "./theme-pages/vintage-theme/vintage-main.component"
 import SkeumorphMainPage from "./theme-pages/skeumorph-theme/skeumorph-main.component";
 import ThemeSelector from "./components/theme-selector/theme-selector.component";
 import Header from "./components/theme-selector/header/header.component";
+import Footer from "./components/theme-selector/footer/footer.component";
 
 export type Theme =
   | "Minimalist"
@@ -15,14 +16,6 @@ export type Theme =
   | "Space"
   | "Skeumorph"
   | "Vintage";
-
-const themeColors: Record<Theme, string> = {
-  Minimalist: "#f2edeb",
-  Brutalism: "#ffb6c1",
-  Space: "#add8e6",
-  Skeumorph: "#90ee90",
-  Vintage: "#f4a460",
-};
 
 const App = () => {
   const { theme } = useTheme();
@@ -39,8 +32,16 @@ const App = () => {
     Skeumorph: <SkeumorphMainPage />,
   };
 
+  const themeColors: Record<Theme, string> = {
+    Minimalist: "#f2edeb",
+    Brutalism: "#f2edeb",
+    Space: "#01060A",
+    Skeumorph: "#B0B0B0",
+    Vintage: "#F4E1D2",
+  };
+
   return (
-    <div>
+    <div className="page-wrapper">
       <div className="theme-selector-container">
         <ThemeSelector />
       </div>
@@ -50,6 +51,7 @@ const App = () => {
       >
         <Header />
         {themeComponents[theme] || <MinimalistMainPage />}
+        <Footer />
       </div>
     </div>
   );

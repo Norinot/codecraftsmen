@@ -1,3 +1,43 @@
-.root{
-  
+.root {
+  margin-top: 160px;
+
+  .title {
+    margin-bottom: 29px;
+  }
+  .memberWrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 56px;
+    justify-content: space-between;
+
+    .defaultImg {
+      cursor: pointer;
+      transition: filter 0.3s ease-in-out;
+      filter: grayscale(100%);
+    }
+
+    .openImg {
+      filter: none;
+    }
+
+    .memberItem {
+      max-width: min-content;
+    }
+
+    .memberDetails {
+      display: flex;
+      gap: 14px;
+      flex-direction: column;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    .memberDetails.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
 }

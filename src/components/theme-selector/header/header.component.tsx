@@ -21,9 +21,10 @@ const Header = () => {
           </button>
           <div className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`}>
             <ul>
-              <li>Menu Item 1</li>
-              <li>Menu Item 2</li>
-              <li>Menu Item 3</li>
+              <li>Home</li>
+              <li>About Us</li>
+              <li>How to Order</li>
+              <li>Contact Us</li>
             </ul>
             <button
               className={styles.closeButton}
@@ -31,7 +32,7 @@ const Header = () => {
                 setMenuOpen(!menuOpen);
               }}
             >
-              X
+              x
             </button>
           </div>
         </div>

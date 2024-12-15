@@ -1,165 +1,166 @@
 import { useState } from "react";
 import styles from "./our-services.module.scss";
-import Typography from "../typography/typography.component";
+import React from "react";
 
-type ServiceOption = "maintenance" | "webdesign" | "fullstack" | "customWeb";
+interface IServiceOption {
+  title: string;
+  description: string;
+}
 
-type ServiceContents = Record<ServiceOption, JSX.Element>;
+interface IOurServices {
+  key: string;
+  imgurl: string;
+  title: string;
+  service: IServiceOption[];
+}
+
+const ourServices: IOurServices[] = [
+  {
+    imgurl: "./expandedImage1.svg",
+    key: "maintenance",
+    title: "Website Maintenance & Support",
+    service: [
+      {
+        title: "Frontend Development1",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Backend Development",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Technologies",
+        description: "Java, .Net, Golang, Angular, React, MySQL, PostgreSQL",
+      },
+    ],
+  },
+  {
+    imgurl: "./expandedImage2.svg",
+    key: "fullstack",
+    title: "Full Stack solutions",
+    service: [
+      {
+        title: "Frontend Development2",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Backend Development",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Technologies",
+        description: "Java, .Net, Golang, Angular, React, MySQL, PostgreSQL",
+      },
+    ],
+  },
+  {
+    imgurl: "./expandedImage3.svg",
+    key: "design",
+    title: "Web design & User Experience",
+    service: [
+      {
+        title: "Frontend Development3",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Backend Development",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Technologies",
+        description: "Java, .Net, Golang, Angular, React, MySQL, PostgreSQL",
+      },
+    ],
+  },
+  {
+    imgurl: "./expandedImage4.svg",
+    key: "custom",
+    title: "Custom web development",
+    service: [
+      {
+        title: "Frontend Development4",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Backend Development",
+        description:
+          "Bringing your designs to life with pixel-perfect precision, our frontend $Team creates responsive and interactive user interfaces that deliver a flawless experience across all devices.",
+      },
+      {
+        title: "Technologies",
+        description: "Java, .Net, Golang, Angular, React, MySQL, PostgreSQL",
+      },
+    ],
+  },
+];
 
 const OurServices = () => {
-  const [serviceOption, setServiceOption] = useState<ServiceOption | null>(
-    null
-  );
-  const handleClick = (option: ServiceOption) => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [serviceOption, setServiceOption] = useState<string>("");
+  const [serviceData, setServiceData] = useState<IOurServices | undefined>();
+
+  const handleClick = (option: string) => {
     if (option === serviceOption) {
-      setServiceOption(null);
+      setOpen(false);
+      setServiceOption("");
+      setServiceData(undefined);
     } else {
+      const service = ourServices.find((service) => service.key === option);
+
+      setOpen(true);
       setServiceOption(option);
+      setServiceData(service);
     }
-  };
-
-  const serviceOptionWebMaintenance = (
-    <div className={styles.serviceWebMaintenanceWrapper}>
-      <li>Frontend Development | Maintenance</li>
-      <span>
-        Bringing your designs to life with pixel-perfect precision, our frontend
-        $Team creates responsive and interactive user interfaces that deliver a
-        flawless experience across all devices.
-      </span>
-      <li>Backend Development</li>
-      <span>
-        Behind the scenes, our backend $Team build robust and scalable systems,
-        ensuring your website performs efficiently with secure and reliable
-        server-side functionality
-      </span>
-      <li>Technologies</li>
-      <span>Java, .Net, Golang, Angular, React, MySQL, PostgreSQL</span>
-    </div>
-  );
-
-  const serviceOptionWebDesign = (
-    <div className={styles.serviceWebMaintenanceWrapper}>
-      <li>Frontend Development | WebDesign </li>
-      <span>
-        Bringing your designs to life with pixel-perfect precision, our frontend
-        $Team creates responsive and interactive user interfaces that deliver a
-        flawless experience across all devices.
-      </span>
-      <li>Backend Development</li>
-      <span>
-        Behind the scenes, our backend $Team build robust and scalable systems,
-        ensuring your website performs efficiently with secure and reliable
-        server-side functionality
-      </span>
-      <li>Technologies</li>
-      <span>Java, .Net, Golang, Angular, React, MySQL, PostgreSQL</span>
-    </div>
-  );
-  const serviceOptionFullStack = (
-    <div className={styles.serviceWebMaintenanceWrapper}>
-      <li>Frontend Development | FullStack</li>
-      <span>
-        Bringing your designs to life with pixel-perfect precision, our frontend
-        $Team creates responsive and interactive user interfaces that deliver a
-        flawless experience across all devices.
-      </span>
-      <li>Backend Development</li>
-      <span>
-        Behind the scenes, our backend $Team build robust and scalable systems,
-        ensuring your website performs efficiently with secure and reliable
-        server-side functionality
-      </span>
-      <li>Technologies</li>
-      <span>Java, .Net, Golang, Angular, React, MySQL, PostgreSQL</span>
-    </div>
-  );
-  const serviceOptionCustomWeb = (
-    <div className={styles.serviceWebMaintenanceWrapper}>
-      <li>Frontend Development | CustomWeb</li>
-      <span>
-        Bringing your designs to life with pixel-perfect precision, our frontend
-        $Team creates responsive and interactive user interfaces that deliver a
-        flawless experience across all devices.
-      </span>
-      <li>Backend Development</li>
-      <span>
-        Behind the scenes, our backend $Team build robust and scalable systems,
-        ensuring your website performs efficiently with secure and reliable
-        server-side functionality
-      </span>
-      <li>Technologies</li>
-      <span>Java, .Net, Golang, Angular, React, MySQL, PostgreSQL</span>
-    </div>
-  );
-
-  const serviceContents: ServiceContents = {
-    maintenance: serviceOptionWebMaintenance,
-    webdesign: serviceOptionWebDesign,
-    fullstack: serviceOptionFullStack,
-    customWeb: serviceOptionCustomWeb,
-  };
-
-  const serviceImages: Record<ServiceOption | "default", string> = {
-    maintenance: "./ourServices_maintenance.svg",
-    webdesign: "./ourServices_design.svg",
-    fullstack: "./ourServices_fullStack.svg",
-    customWeb: "./ourServices_customWeb.svg",
-    default: "./ourServices_base.svg",
   };
 
   return (
     <div className={styles.root}>
-      <Typography theme="Minimalist" variant="display-medium">
-        Our Services
-      </Typography>
-      <div className={styles.container}>
-        <div className={styles.serviceOptions}>
-          <div className={styles.grid}>
-            <span
-              onClick={() => handleClick("maintenance")}
-              className={`${
-                serviceOption === "maintenance" ? styles.active : ""
-              }`}
-            >
-              Website Maintenance & Support
-            </span>
-            <span
-              onClick={() => handleClick("webdesign")}
-              className={`${
-                serviceOption === "webdesign" ? styles.active : ""
-              }`}
-            >
-              Web design & User Experience
-            </span>
-            <span
-              onClick={() => handleClick("fullstack")}
-              className={`${
-                serviceOption === "fullstack" ? styles.active : ""
-              }`}
-            >
-              Full Stack solutions
-            </span>
-            <span
-              onClick={() => handleClick("customWeb")}
-              className={`${
-                serviceOption === "customWeb" ? styles.active : ""
-              }`}
-            >
-              Custom web development
-            </span>
+      <h1>Our Services</h1>
+      <div className={styles.listWrapper}>
+        <div className={styles.servicesContainer}>
+          <div className={styles.serviceButtonWrapper}>
+            <ul className={styles.groupWrapper}>
+              {ourServices.map((service) => (
+                <li
+                  key={service.key}
+                  onClick={() => handleClick(service.key)}
+                  className={`${styles.liStyles}
+                ${serviceOption === service.key ? styles.active : ""}
+                `}
+                >
+                  {service.title}
+                </li>
+              ))}
+            </ul>
           </div>
-          {serviceOption ? serviceContents[serviceOption] : null}
+          <div>
+            <div
+              className={`${styles.serviceWebMaintenanceWrapper} ${
+                open ? styles.open : ""
+              }`}
+            >
+              {serviceData?.service?.map((service) => (
+                <React.Fragment key={service.title}>
+                  <li>{service.title}</li>
+                  <span>{service.description}</span>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
         </div>
-        <div>
-          <img
-            src={
-              serviceOption
-                ? serviceImages[serviceOption]
-                : serviceImages.default
-            }
-            alt=""
-          />
-        </div>
+
+        <img
+          className={open ? styles.expandedImage : styles.servicesBaseImage}
+          src={serviceData?.imgurl || "./ourServicesBase.svg"}
+          alt=""
+        />
       </div>
       <button className={styles.contactUsButton}>Contact Us</button>
     </div>

@@ -1,10 +1,17 @@
+import OurServices from "../minimalist-theme/components/our-services/our-services.component";
+import styles from "./skeumorph.module.scss";
 const SkeumorphMainPage = () => {
   return (
-    <div>
-      <h1>Skeumorph</h1>
-      <h1></h1>
-      <h1></h1>
-    </div>
+    <>
+      <div className={styles.heroSection}>
+        <div className={styles.learnMoreGroup}>
+          <h1 className={styles.title}>We create websites.</h1>
+          <button className={styles.learnMoreButton}>Learn more</button>
+        </div>
+        <img className={styles.animatedLogo} src="/animated_logo.svg" alt="" />
+      </div>
+      <OurServices />
+    </>
   );
 };
 export default SkeumorphMainPage;
