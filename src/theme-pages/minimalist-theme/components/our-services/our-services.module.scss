@@ -38,14 +38,6 @@ h1 {
     max-width: min-content;
     max-width: 261px;
   }
-
-  ul {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 67px;
-    margin: 0;
-  }
 }
 
 .serviceButtonWrapper {
@@ -57,7 +49,12 @@ h1 {
     max-width: 104px;
   }
 
-  .secondGroup {
+  .groupWrapper {
+    height: 202px;
+    gap: 50px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
     border-right: 2px solid #a4abad;
   }
 }
@@ -68,10 +65,6 @@ h1 {
   position: absolute;
   border: 1px solid #a4abad;
   bottom: -15px;
-}
-
-.servicesBaseImage {
-  width: 193px;
 }
 
 .contactUsButton {
@@ -86,6 +79,11 @@ h1 {
   cursor: pointer;
 }
 
+img {
+  display: block;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
 .serviceWebMaintenanceWrapper {
   margin-top: 25px;
   padding-top: 25px;
@@ -94,9 +92,26 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.serviceWebMaintenanceWrapper.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.servicesBaseImage {
+  width: 193px;
+  height: 217px;
+  transition: height 0.5s ease, opacity 0.5s ease;
 }
 
 .expandedImage {
   width: 193px;
   height: 540px;
+  transition: height 0.5s ease, opacity 0.5s ease;
 }
