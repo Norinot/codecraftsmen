@@ -1,3 +1,7 @@
+.root {
+  font-family: "Bebas Neue", "sans-serif";
+}
+
 .heroSection {
   margin-top: 180px;
   display: flex;
@@ -13,6 +17,8 @@
 }
 
 .learnMoreButton {
+  font-family: "Bebas Neue", "sans-serif";
+
   transition: 0.3s ease-in-out;
   max-width: 186px;
   height: 42px;
