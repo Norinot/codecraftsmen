@@ -1,6 +1,6 @@
 import OurServices from "./components/our-services/our-services.component";
 import OurTeam from "./components/our-team/our-team.component";
-import Typography from "./components/typography/typography.component";
+import Typography from "../../components/typography/typography.component";
 import styles from "./minimalist.module.scss";
 
 const MinimalistMainPage = () => {
