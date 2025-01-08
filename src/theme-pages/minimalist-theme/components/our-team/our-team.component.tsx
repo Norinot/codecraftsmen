@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./our-team.module.scss";
-import Typography from "../typography/typography.component";
+import Typography from "../../../../components/typography/typography.component";
 
 interface IOurTeam {
   imgUrl: string;
