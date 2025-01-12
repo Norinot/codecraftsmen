@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./App.scss";
+import styles from "./App.module.scss";
 import { useTheme } from "./theme-provider/theme-provider.context";
 import SpaceMainPage from "./theme-pages/space-theme/space-main.component";
 import MinimalistMainPage from "./theme-pages/minimalist-theme/minimalist-main.component";
@@ -9,6 +9,7 @@ import SkeumorphMainPage from "./theme-pages/skeumorph-theme/skeumorph-main.comp
 import ThemeSelector from "./components/theme-selector/theme-selector.component";
 import Header from "./components/theme-selector/header/header.component";
 import Footer from "./components/theme-selector/footer/footer.component";
+import Typography from "./components/typography/typography.component";
 
 export type Theme =
   | "Minimalist"
@@ -41,16 +42,35 @@ const App = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <div className="theme-selector-container">
+    <div className={styles["page-wrapper"]}>
+      <div className={styles["theme-selector-container"]}>
         <ThemeSelector />
       </div>
       <div
-        className="theme-page-wrapper"
+        className={styles["theme-page-wrapper"]}
         style={{ backgroundColor: themeColors[theme] }}
       >
         <Header />
-        {themeComponents[theme] || <MinimalistMainPage />}
+        <>
+          <div className={styles.heroSection}>
+            <div className={styles.learnMoreGroup}>
+              <Typography
+                theme="Minimalist"
+                variant="display-medium"
+                className={styles.title}
+              >
+                We create websites.
+              </Typography>
+              <button className={styles.learnMoreButton}>Learn more</button>
+            </div>
+            <img
+              className={`${styles.animatedLogo} ${styles[theme]}`}
+              src="/animated_logo.svg"
+              alt=""
+            />
+          </div>
+          {themeComponents[theme] || <MinimalistMainPage />}
+        </>
         <Footer />
       </div>
     </div>

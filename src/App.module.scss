@@ -1,0 +1,89 @@
+@import "@themes/theme-space";
+@import "@themes/theme-brutalism";
+@import "@themes/theme-minimalist";
+@import "@themes/theme-skeumorphism";
+@import "@themes/theme-vintage";
+
+.mainTitle {
+  background-color: var(--bg-2);
+  display: var(--display);
+  width: var(--width);
+}
+
+* {
+  color: var(--text-color);
+}
+
+footer {
+  bottom: 0;
+  position: absolute;
+}
+
+.theme-page-wrapper {
+  max-width: 938px;
+  box-shadow: 22px -13px 66.3px 0 rgba(36, 40, 62, 0.54);
+  border-radius: 25px;
+  margin: 135px auto;
+  overflow: hidden;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+  border-radius: 24px;
+}
+
+.theme-selector-container {
+  position: absolute;
+  top: 400px;
+  left: 150px;
+}
+
+.heroSection {
+  position: relative;
+  margin-top: 180px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 115px;
+  justify-content: center;
+}
+
+.learnMoreButton {
+  transition: 0.3s ease-in-out;
+  max-width: 186px;
+  height: 42px;
+  color: #ffffff;
+  background-color: #1e1e1e;
+  border: none;
+  width: 100%;
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.54);
+}
+
+.learnMoreButton:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #313131;
+}
+
+.learnMoreGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.animatedLogo {
+  margin: 0 52px 0 52px;
+}
+
+.Minimalist {
+  filter: invert(73%) sepia(7%) saturate(199%) hue-rotate(147deg)
+    brightness(92%) contrast(91%);
+
+  transition: 0.3s ease-in-out;
+}
+.Brutalism {
+  position: absolute;
+  right: -230px;
+  filter: invert(73%) sepia(7%) saturate(199%) hue-rotate(147deg)
+    brightness(92%) contrast(91%);
+
+  transition: 0.3s ease-in-out;
+}
