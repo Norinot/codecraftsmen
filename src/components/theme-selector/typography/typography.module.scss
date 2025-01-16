@@ -96,9 +96,86 @@
 }
 
 .Brutalist {
+  margin: 0;
 
+  &.display-large {
+    font-size: 64px;
+    line-height: 64px;
+    letter-spacing: 1%;
+  }
+
+  &.display-medium {
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.25%;
+  }
+
+  &.display-small {
+    font-size: 36px;
+    line-height: 52px;
+    letter-spacing: -0.25%;
+  }
+
+  &.headline {
+    font-size: 28px;
+    line-height: 52px;
+    letter-spacing: -0.25%;
+  }
+
+  &.body-large {
+    font-size: 20px;
+    line-height: 52px;
+    letter-spacing: 1%;
+  }
+
+  &.body-regular {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+  }
+
+  &.caption {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 52px;
+    letter-spacing: 1.5px;
+  }
 }
 
 .Space {
-  
+  margin: 0;
+
+  &.display-medium {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  &.display-small {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  &.headline {
+    font-size: 28px;
+    font-weight: lighter;
+  }
+
+  &.body-large {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &.body-regular {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  &.body-small {
+    font-size: 14px;
+    line-height: 25px;
+  }
+
+  &.caption {
+    font-size: 12px;
+  }
 }

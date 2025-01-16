@@ -1,11 +1,11 @@
-import { ReactNode, FC } from "react";
+import { ReactNode } from "react";
 import styles from "./typography.module.scss";
 import { ThemeVariant, ThemeVariantMap } from "./typography.types";
 
 interface TypographyProps<T extends keyof ThemeVariantMap> {
   children: ReactNode;
   className?: string;
-  theme: T; 
+  theme: T;
   variant: ThemeVariant<T>;
 }
 
