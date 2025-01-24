@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./our-services.module.scss";
-import React from "react";
+import Typography from "../../../../components/typography/typography.component";
 
 interface IServiceOption {
   title: string;
@@ -13,6 +13,13 @@ interface IOurServices {
   title: string;
   service: IServiceOption[];
 }
+
+const preloadImages = (imageUrls: string[]) => {
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+};
 
 const ourServices: IOurServices[] = [
   {
@@ -120,47 +127,57 @@ const OurServices = () => {
     }
   };
 
+  useEffect(() => {
+    const imageUrls: string[] = ourServices.map(
+      (serviceOption) => serviceOption.imgurl
+    );
+    preloadImages(imageUrls);
+  }, []);
+
   return (
     <div className={styles.root}>
       <h1>Our Services</h1>
-      <div className={styles.listWrapper}>
-        <div className={styles.servicesContainer}>
-          <div className={styles.serviceButtonWrapper}>
-            <ul className={styles.groupWrapper}>
-              {ourServices.map((service) => (
-                <li
-                  key={service.key}
-                  onClick={() => handleClick(service.key)}
-                  className={`${styles.listStyles}
-                ${serviceOption === service.key ? styles.active : ""}
-                `}
+      <div className={styles.container}>
+        <div>
+          <div className={styles.servicesContainer}>
+            {ourServices.map((service) => (
+              <div onClick={() => handleClick(service.key)} key={service.key}>
+                <Typography theme="Minimalist" variant="heading-3">
+                  {service.title}
+                </Typography>
+              </div>
+            ))}
+          </div>
+          <div
+            className={`${styles.titleDescription} ${
+              serviceData ? styles.active : styles.hidden
+            }`}
+          >
+            {serviceData?.service.map((service) => (
+              <div key={service.title}>
+                <Typography
+                  theme="Minimalist"
+                  variant="body-large"
+                  className={styles.decoratedTitle}
                 >
                   {service.title}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <div
-              className={`${styles.serviceWebMaintenanceWrapper} ${
-                open ? styles.open : ""
-              }`}
-            >
-              {serviceData?.service?.map((service) => (
-                <React.Fragment key={service.title}>
-                  <li>{service.title}</li>
-                  <span>{service.description}</span>
-                </React.Fragment>
-              ))}
-            </div>
+                </Typography>
+                <Typography theme="Minimalist" variant="body-medium">
+                  {service.description}
+                </Typography>
+              </div>
+            ))}
           </div>
         </div>
-
-        <img
-          className={open ? styles.expandedImage : styles.servicesBaseImage}
-          src={serviceData?.imgurl || "./ourServicesBase.svg"}
-          alt=""
-        />
+        <div>
+          <img
+            src={serviceData?.imgurl ?? "./ourServicesBase.svg"}
+            alt=""
+            className={`${
+              serviceData?.imgurl ? styles.swappedImg : styles.defaultImg
+            }`}
+          />
+        </div>
       </div>
       <button className={styles.contactUsButton}>Contact Us</button>
     </div>

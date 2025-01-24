@@ -13,7 +13,7 @@ export type MinimalistVariants =
   | "button-large"
   | "button-small"
   | "caption"
-  | "overline"
+  | "overline";
 
 export type BrutalistVariants =
   | "display-large"
