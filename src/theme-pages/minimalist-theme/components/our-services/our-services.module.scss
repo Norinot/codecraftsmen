@@ -57,24 +57,23 @@
     position: relative;
   }
 
-  .active {
-    height: 400px;
-    opacity: 100%;
-    transition: 0.3s ease-in-out;
-  }
-
-  .hidden {
-    opacity: 0;
-    padding: 0;
-    transition: 0.3s ease-in-out;
-    height: 0px;
-  }
-
   .titleDescription {
+    container-type: inline-size;
     padding: 26px;
     display: flex;
     flex-direction: column;
     gap: 31px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      right: 0;
+      width: 2px;
+      height: 90%;
+      background-color: #a4abad;
+    }
+
     div {
       display: flex;
       gap: 8px;
@@ -106,6 +105,18 @@
   .activeText {
     text-decoration: underline;
   }
+
+  .active {
+    height: 400px;
+    transition: height 0.3s ease-out;
+  }
+
+  .hidden {
+    opacity: 0;
+    padding: 0;
+    transition: 0.3s ease-in-out;
+    height: 0px;
+  }
 }
 
 .defaultImg {
@@ -118,4 +129,84 @@
   transition: 0.3s ease-out;
   height: 632px;
   width: 226px;
+}
+
+@media (max-width: 828px) {
+  .titleText {
+    text-align: center;
+  }
+  .titleText::before {
+    display: none;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: height 0.3s ease, width 0.3s ease; /* Adjust the transition properties as needed */
+  }
+
+  .container {
+    gap: 17px !important;
+    flex-direction: column-reverse;
+  }
+
+  .defaultImg {
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+  }
+
+  .swappedImg {
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+  }
+
+  .servicesContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 20px;
+  }
+
+  .servicesContainer::before {
+    width: 100% !important;
+    left: 0 !important;
+  }
+  .servicesContainer::after {
+    all: unset !important;
+  }
+
+  .titleDescription::before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 2px;
+    height: 90%;
+    background-color: #a4abad;
+  }
+}
+
+.accordion {
+  .titleText {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .activeText {
+    background-color: #cfcfcf;
+    border-radius: 8px;
+  }
+
+  .content {
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+
+  .decoratedTitle {
+    position: relative;
+    margin-top: 10px;
+  }
 }

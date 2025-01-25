@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./our-services.module.scss";
 import Typography from "../../../../components/typography/typography.component";
+import useWindowSize from "../../../../hooks/windowSize.hook";
 
 interface IServiceOption {
   title: string;
@@ -9,6 +10,7 @@ interface IServiceOption {
 
 interface IOurServices {
   key: string;
+  mobileImgUrl: string;
   imgurl: string;
   title: string;
   service: IServiceOption[];
@@ -23,7 +25,8 @@ const preloadImages = (imageUrls: string[]) => {
 
 const ourServices: IOurServices[] = [
   {
-    imgurl: "./expandedImage1.svg",
+    mobileImgUrl: "./Minimalist/mobile/expandedImage1_mobile.svg",
+    imgurl: "./Minimalist/desktop/expandedImage1.svg",
     key: "maintenance",
     title: "Website Maintenance & Support",
     service: [
@@ -44,7 +47,8 @@ const ourServices: IOurServices[] = [
     ],
   },
   {
-    imgurl: "./expandedImage2.svg",
+    mobileImgUrl: "./Minimalist/mobile/expandedImage2_mobile.svg",
+    imgurl: "./Minimalist/desktop/expandedImage2.svg",
     key: "fullstack",
     title: "Full Stack solutions",
     service: [
@@ -65,7 +69,8 @@ const ourServices: IOurServices[] = [
     ],
   },
   {
-    imgurl: "./expandedImage3.svg",
+    mobileImgUrl: "./Minimalist/mobile/expandedImage3_mobile.svg",
+    imgurl: "./Minimalist/desktop/expandedImage3.svg",
     key: "design",
     title: "Web design & User Experience",
     service: [
@@ -86,7 +91,8 @@ const ourServices: IOurServices[] = [
     ],
   },
   {
-    imgurl: "./expandedImage4.svg",
+    mobileImgUrl: "./Minimalist/mobile/expandedImage4_mobile.svg",
+    imgurl: "./Minimalist/desktop/expandedImage4.svg",
     key: "custom",
     title: "Custom web development",
     service: [
@@ -109,19 +115,20 @@ const ourServices: IOurServices[] = [
 ];
 
 const OurServices = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const windowWidth = useWindowSize();
+  const isMobile = windowWidth <= 828;
+
   const [serviceOption, setServiceOption] = useState<string>("");
   const [serviceData, setServiceData] = useState<IOurServices | undefined>();
+  const [activeKey, setActiveKey] = useState<string | null>(null);
 
   const handleClick = (option: string) => {
     if (option === serviceOption) {
-      setOpen(false);
       setServiceOption("");
       setServiceData(undefined);
     } else {
       const service = ourServices.find((service) => service.key === option);
 
-      setOpen(true);
       setServiceOption(option);
       setServiceData(service);
     }
@@ -134,50 +141,80 @@ const OurServices = () => {
     preloadImages(imageUrls);
   }, []);
 
+  const handleToggle = (key: string) => {
+    setActiveKey(activeKey === key ? null : key);
+    const service = ourServices.find((service) => service.key === key);
+
+    setServiceData(activeKey === key ? undefined : service);
+  };
+
   return (
     <div className={styles.root}>
       <h1>Our Services</h1>
       <div className={styles.container}>
         <div>
           <div className={styles.servicesContainer}>
-            {ourServices.map((service) => (
-              <div onClick={() => handleClick(service.key)} key={service.key}>
-                <Typography
-                  theme="Minimalist"
-                  variant="heading-3"
-                  className={
-                    serviceData?.key === service.key ? styles.activeText : ""
-                  }
-                >
-                  {service.title}
-                </Typography>
+            {!isMobile &&
+              ourServices.map((service) => (
+                <div onClick={() => handleClick(service.key)} key={service.key}>
+                  <Typography
+                    theme="Minimalist"
+                    variant={isMobile ? "body-large" : "heading-3"}
+                    className={`${styles.titleText} ${
+                      serviceData?.key === service.key ? styles.activeText : ""
+                    }`}
+                  >
+                    {service.title}
+                  </Typography>
+                </div>
+              ))}
+
+            {isMobile && (
+              <div className={styles.container}>
+                {ourServices.map((service) => (
+                  <Accordion
+                    key={service.key}
+                    title={service.title}
+                    content={service.service}
+                    isOpen={activeKey === service.key}
+                    onToggle={() => handleToggle(service.key)}
+                  />
+                ))}
               </div>
-            ))}
+            )}
           </div>
-          <div
-            className={`${styles.titleDescription} ${
-              serviceData ? styles.active : styles.hidden
-            }`}
-          >
-            {serviceData?.service.map((service) => (
-              <div key={service.title}>
-                <Typography
-                  theme="Minimalist"
-                  variant="body-large"
-                  className={styles.decoratedTitle}
-                >
-                  {service.title}
-                </Typography>
-                <Typography theme="Minimalist" variant="body-medium">
-                  {service.description}
-                </Typography>
-              </div>
-            ))}
-          </div>
+          {!isMobile && (
+            <div
+              className={`${styles.titleDescription} ${
+                serviceData ? styles.active : styles.hidden
+              }`}
+            >
+              {serviceData?.service.map((service) => (
+                <div key={service.title}>
+                  <Typography
+                    theme="Minimalist"
+                    variant="body-large"
+                    className={styles.decoratedTitle}
+                  >
+                    {service.title}
+                  </Typography>
+                  <Typography theme="Minimalist" variant="body-medium">
+                    {service.description}
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-        <div>
+        <div className={styles.imageContainer}>
           <img
-            src={serviceData?.imgurl ?? "./ourServicesBase.svg"}
+            src={
+              isMobile
+                ? serviceData?.mobileImgUrl ??
+                  "./Minimalist/mobile/ourServicesBase_mobile.svg"
+                : serviceData?.imgurl ??
+                  "./Minimalist/desktop/ourServicesBase.svg"
+            }
             alt=""
             className={`${
               serviceData?.imgurl ? styles.swappedImg : styles.defaultImg
@@ -191,3 +228,45 @@ const OurServices = () => {
 };
 
 export default OurServices;
+
+interface AccordionProps {
+  title: string;
+  content: IServiceOption[];
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+const Accordion = ({ title, content, isOpen, onToggle }: AccordionProps) => {
+  return (
+    <div className={styles.accordion}>
+      <Typography
+        theme="Minimalist"
+        variant="heading-3"
+        className={`${styles.titleText} ${isOpen ? styles.activeText : ""}`}
+        onClick={onToggle}
+      >
+        {title}
+      </Typography>
+      <div
+        className={`${styles.content} ${
+          isOpen ? styles.active : styles.hidden
+        }`}
+      >
+        {content.map((item, index) => (
+          <div key={index}>
+            <Typography
+              theme="Minimalist"
+              variant="body-large"
+              className={styles.decoratedTitle}
+            >
+              {item.title}
+            </Typography>
+            <Typography theme="Minimalist" variant="body-medium">
+              {item.description}
+            </Typography>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
