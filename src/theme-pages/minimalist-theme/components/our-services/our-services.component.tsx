@@ -142,7 +142,13 @@ const OurServices = () => {
           <div className={styles.servicesContainer}>
             {ourServices.map((service) => (
               <div onClick={() => handleClick(service.key)} key={service.key}>
-                <Typography theme="Minimalist" variant="heading-3">
+                <Typography
+                  theme="Minimalist"
+                  variant="heading-3"
+                  className={
+                    serviceData?.key === service.key ? styles.activeText : ""
+                  }
+                >
                   {service.title}
                 </Typography>
               </div>
