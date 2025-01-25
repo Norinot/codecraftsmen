@@ -132,13 +132,6 @@
 }
 
 @media (max-width: 828px) {
-  .titleText {
-    text-align: center;
-  }
-  .titleText::before {
-    display: none;
-  }
-
   .imageContainer {
     width: 100%;
     height: 100%;
@@ -186,27 +179,5 @@
     width: 2px;
     height: 90%;
     background-color: #a4abad;
-  }
-}
-
-.accordion {
-  .titleText {
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-
-  .activeText {
-    background-color: #cfcfcf;
-    border-radius: 8px;
-  }
-
-  .content {
-    overflow: hidden;
-    transition: height 0.3s ease;
-  }
-
-  .decoratedTitle {
-    position: relative;
-    margin-top: 10px;
   }
 }

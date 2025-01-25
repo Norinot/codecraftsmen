@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import styles from "./our-services.module.scss";
 import Typography from "../../../../components/typography/typography.component";
 import useWindowSize from "../../../../hooks/windowSize.hook";
+import Accordion from "./components/accordion/accordion.component";
 
-interface IServiceOption {
+export interface IServiceOption {
   title: string;
   description: string;
 }
 
-interface IOurServices {
+export interface IOurServices {
   key: string;
   mobileImgUrl: string;
   imgurl: string;
@@ -206,7 +207,11 @@ const OurServices = () => {
             </div>
           )}
         </div>
-        <div className={styles.imageContainer}>
+        <div
+          className={`${styles.imageContainer} ${
+            serviceData?.imgurl ? styles.activeImage : ""
+          }`}
+        >
           <img
             src={
               isMobile
@@ -216,7 +221,7 @@ const OurServices = () => {
                   "./Minimalist/desktop/ourServicesBase.svg"
             }
             alt=""
-            className={`${
+            className={`${styles.baseImage} ${
               serviceData?.imgurl ? styles.swappedImg : styles.defaultImg
             }`}
           />
@@ -228,45 +233,3 @@ const OurServices = () => {
 };
 
 export default OurServices;
-
-interface AccordionProps {
-  title: string;
-  content: IServiceOption[];
-  isOpen: boolean;
-  onToggle: () => void;
-}
-
-const Accordion = ({ title, content, isOpen, onToggle }: AccordionProps) => {
-  return (
-    <div className={styles.accordion}>
-      <Typography
-        theme="Minimalist"
-        variant="heading-3"
-        className={`${styles.titleText} ${isOpen ? styles.activeText : ""}`}
-        onClick={onToggle}
-      >
-        {title}
-      </Typography>
-      <div
-        className={`${styles.content} ${
-          isOpen ? styles.active : styles.hidden
-        }`}
-      >
-        {content.map((item, index) => (
-          <div key={index}>
-            <Typography
-              theme="Minimalist"
-              variant="body-large"
-              className={styles.decoratedTitle}
-            >
-              {item.title}
-            </Typography>
-            <Typography theme="Minimalist" variant="body-medium">
-              {item.description}
-            </Typography>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
