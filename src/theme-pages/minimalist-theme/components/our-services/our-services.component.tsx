@@ -3,6 +3,7 @@ import styles from "./our-services.module.scss";
 import Typography from "../../../../components/typography/typography.component";
 import useWindowSize from "../../../../hooks/windowSize.hook";
 import Accordion from "./components/accordion/accordion.component";
+import React from "react";
 
 export interface IServiceOption {
   title: string;
@@ -213,18 +214,41 @@ const OurServices = () => {
           }`}
         >
           <img
-            src={
-              isMobile
-                ? serviceData?.mobileImgUrl ??
-                  "./Minimalist/mobile/ourServicesBase_mobile.svg"
-                : serviceData?.imgurl ??
-                  "./Minimalist/desktop/ourServicesBase.svg"
-            }
+            src="./Minimalist/desktop/ourServicesBase.svg"
             alt=""
             className={`${styles.baseImage} ${
-              serviceData?.imgurl ? styles.swappedImg : styles.defaultImg
+              !serviceData && !isMobile ? styles.visible : styles.hidden
             }`}
           />
+          <img
+            src="./Minimalist/mobile/ourServicesBase_mobile.svg"
+            alt=""
+            className={`${styles.mobileImage} ${
+              !serviceData && isMobile ? styles.visible : styles.hidden
+            }`}
+          />
+          {ourServices.map((service) => (
+            <React.Fragment key={service.key}>
+              <img
+                src={service.imgurl}
+                alt=""
+                className={`${styles.baseImage} ${
+                  serviceData?.key === service.key && !isMobile
+                    ? styles.visible
+                    : styles.hidden
+                }`}
+              />
+              <img
+                src={service.mobileImgUrl}
+                alt=""
+                className={`${styles.mobileImage} ${
+                  serviceData?.key === service.key && isMobile
+                    ? styles.visible
+                    : styles.hidden
+                }`}
+              />
+            </React.Fragment>
+          ))}
         </div>
       </div>
       <button className={styles.contactUsButton}>Contact Us</button>

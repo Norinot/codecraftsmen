@@ -181,3 +181,25 @@
     background-color: #a4abad;
   }
 }
+
+.baseImage,
+.mobileImage {
+  display: none;
+  transition: opacity 0.3s ease-out;
+}
+
+.visible {
+  display: grid;
+  grid-template-rows: 1fr;
+  width: inherit;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+}
+
+.hidden {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
