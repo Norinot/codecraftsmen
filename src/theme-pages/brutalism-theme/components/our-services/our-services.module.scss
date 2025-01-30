@@ -1,0 +1,66 @@
+.root {
+  padding: 2rem;
+  background-color: #000;
+  color: #fff;
+
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+
+    &:hover {
+      border-color: #39ff14;
+      transform: translateY(-5px);
+    }
+
+    &.active {
+      background-color: #333;
+      border-color: #39ff14;
+    }
+
+    .cardHeader {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .icon {
+        font-size: 2rem;
+        color: #39ff14;
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+
+      .cardTitle {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
+
+    .cardDescription {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+  }
+}

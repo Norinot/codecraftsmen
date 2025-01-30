@@ -13,14 +13,15 @@ export type MinimalistVariants =
   | "button-large"
   | "button-small"
   | "caption"
-  | "overline"
+  | "overline";
 
 export type BrutalistVariants =
   | "display-large"
-  | "heading-1"
-  | "heading-2"
-  | "heading-3"
-  | "body-large-bold"
+  | "display-medium"
+  | "display-small"
+  | "headline"
+  | "body-large"
+  | "body-regular"
   | "caption";
 
 export type SpaceVariants =
