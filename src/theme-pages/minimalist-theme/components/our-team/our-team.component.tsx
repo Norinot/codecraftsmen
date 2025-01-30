@@ -5,7 +5,7 @@ import Typography from "../../../../components/theme-selector/typography/typogra
 interface IOurTeam {
   imgUrl: string;
   name: string;
-  title: string;
+  title: string[];
   motto: string;
 }
 
@@ -13,26 +13,26 @@ const ourTeam: IOurTeam[] = [
   {
     imgUrl: "./ProfilePic.svg",
     name: "Bence",
-    title: "CEO & Founder, Full stack Developer",
-    motto: "My Motto: “From Concept to Code, Driving Innovation Forward”",
+    title: ["CEO & Founder", "Full stack Developer"],
+    motto: "“From Concept to Code, Driving Innovation Forward”",
   },
   {
     imgUrl: "./ProfilePic.svg",
     name: "Dani",
-    title: "CO-Founder & Full stack Developer",
-    motto: "My Motto: “From Concept to Code, Driving Innovation Forward”",
+    title: ["CO-Founder", "Full stack Developer"],
+    motto: "“From Concept to Code, Driving Innovation Forward”",
   },
   {
     imgUrl: "./ProfilePic.svg",
     name: "Eszter",
-    title: "Lead UX/UI Designer",
-    motto: "My Motto: “From Concept to Code, Driving Innovation Forward”",
+    title: ["Lead UX/UI Designer"],
+    motto: "“From Concept to Code, Driving Innovation Forward”",
   },
   {
     imgUrl: "./ProfilePic.svg",
     name: "Dóra",
-    title: "Senior UX/UI Designer",
-    motto: "My Motto: “From Concept to Code, Driving Innovation Forward”",
+    title: ["Senior UX/UI Designer"],
+    motto: "“From Concept to Code, Driving Innovation Forward”",
   },
 ];
 
@@ -89,13 +89,25 @@ const OurTeam = () => {
                   <Typography theme="Minimalist" variant="heading-1">
                     {member.name}
                   </Typography>
-                  <Typography theme="Minimalist" variant="body-large">
-                    {member.title}
+
+                  {member.title.map((title) => (
+                    <Typography
+                      theme="Minimalist"
+                      variant="body-large"
+                      key={title}
+                    >
+                      {title}
+                    </Typography>
+                  ))}
+                </div>
+                <div className={styles.mottoWrapper}>
+                  <Typography theme="Minimalist" variant="button-large">
+                    My Motto:
+                  </Typography>
+                  <Typography theme="Minimalist" variant="body-small">
+                    {member.motto}
                   </Typography>
                 </div>
-                <Typography theme="Minimalist" variant="body-small">
-                  {member.motto}
-                </Typography>
               </div>
             </div>
           );

@@ -25,19 +25,36 @@
     }
 
     .memberDetails {
-      display: flex;
       gap: 14px;
-      flex-direction: column;
-      visibility: hidden;
+      overflow: hidden;
+      height: 0;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      visibility: hidden;
+      transition: height 0.6s ease, opacity 0.6s ease, visibility 0.6s ease;
     }
 
     .memberDetails.visible {
+      height: 140px;
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transition: height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .defaultImg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .memberWrapper {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .memberDetails.visible {
+    position: relative !important;
   }
 }
