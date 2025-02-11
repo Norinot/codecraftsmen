@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./our-services.module.scss";
+import Typography from "../../../../components/typography/typography.component";
 
 interface IService {
   title: string;
@@ -73,7 +74,11 @@ const OurServices = () => {
 
   return (
     <div className={styles.root}>
-      <h1 className={styles.title}>Check Out Our Services</h1>
+      <h1 className={styles.title}>
+        <Typography theme="Brutalist" variant="display-medium">
+          Check Out Our Services
+        </Typography>
+      </h1>
       <div className={styles.grid}>
         {ourServices.map((service) => (
           <div

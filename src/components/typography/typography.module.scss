@@ -97,35 +97,36 @@
 
 .Brutalist {
   margin: 0;
+  font-family: "Bebas Neue";
 
   &.display-large {
     font-size: 64px;
     line-height: 64px;
-    letter-spacing: 1%;
+    letter-spacing: 1px;
   }
 
   &.display-medium {
     font-size: 48px;
     line-height: 52px;
-    letter-spacing: -0.25%;
+    letter-spacing: -0.25px;
   }
 
   &.display-small {
     font-size: 36px;
     line-height: 52px;
-    letter-spacing: -0.25%;
+    letter-spacing: -0.25px;
   }
 
   &.headline {
     font-size: 28px;
     line-height: 52px;
-    letter-spacing: -0.25%;
+    letter-spacing: -0.25px;
   }
 
   &.body-large {
     font-size: 20px;
     line-height: 52px;
-    letter-spacing: 1%;
+    letter-spacing: 1px;
   }
 
   &.body-regular {
