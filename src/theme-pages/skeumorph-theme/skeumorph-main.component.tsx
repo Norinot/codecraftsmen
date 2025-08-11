@@ -1,9 +1,11 @@
+import OurServices from "../minimalist-theme/components/our-services/our-services.component"; // Change import location
+import OurTeam from "../minimalist-theme/components/our-team/our-team.component"; // Change import location
+import styles from "./skeumorph.module.scss";
 const SkeumorphMainPage = () => {
   return (
-    <div>
-      <h1>Skeumorph</h1>
-      <h1></h1>
-      <h1></h1>
+    <div className={styles.root}>
+      <OurServices />
+      <OurTeam />
     </div>
   );
 };

@@ -1,0 +1,35 @@
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease-out;
+}
+
+.content.active {
+  grid-template-rows: 1fr;
+}
+
+.inner {
+  overflow: hidden;
+}
+
+.decoratedTitle {
+  position: relative;
+  margin-top: 10px;
+}
+
+.titleText {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.activeText {
+  background-color: #cfcfcf;
+  border-radius: 8px;
+}
+
+.titleText {
+  text-align: center;
+}
+.titleText::before {
+  display: none;
+}
